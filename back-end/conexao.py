@@ -21,7 +21,7 @@ def conectar():
         print("Deu certo!")
         return conexao, cursor
     except Exception as error:
-        print("Erro de conexão: {}".format(error))
+        print(f"Erro de conexão: {error}")
         return None, None
 
 conectar()
