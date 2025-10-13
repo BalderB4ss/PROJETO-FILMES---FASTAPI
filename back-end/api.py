@@ -25,3 +25,16 @@ def home():
 def criar_filmes(titulo:str, genero:str, ano:int, avaliacao:float):
     inserir_filme(titulo, genero, ano, avaliacao)
     return {"mensagem": "Filme adicionado com sucesso!"}
+
+@app.get("/filmes")
+def exibir_filmes():
+    filmes = listar_filmes()
+    lista = []
+    for filme in filmes:
+        lista.append({
+            "id": filme[0],
+            "titulo": filme[1],
+            "genero": filme[2],
+            "ano": filme[3],
+            "avaliacao":filme[4]})
+    return {"filmes": lista}
