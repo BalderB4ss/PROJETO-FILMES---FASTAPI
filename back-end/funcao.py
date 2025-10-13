@@ -18,4 +18,18 @@ avaliacao REAL
         finally:
             cursor.close()
             conexao.close()
-criar_tabela()
+
+def inserir_filme(titulo, genero, ano, avaliacao):
+    conexao, cursor = conectar()
+    if conexao:
+        try:
+            cursor.execute("INSERT INTO filmes (titulo, genero, ano, avaliacao) VALUES (%s, %s, %s, %s)",
+                           (titulo, genero, ano, avaliacao))
+            conexao.commit()
+        except Exception as error:
+            print(f"Erro ao inserir filme: {error}")
+        finally:
+            cursor.close()
+            conexao.close()
+
+inserir_filme("abu","legal",1945,8.8)
