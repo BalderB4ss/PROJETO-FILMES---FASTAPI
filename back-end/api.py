@@ -38,3 +38,8 @@ def exibir_filmes():
             "ano": filme[3],
             "avaliacao":filme[4]})
     return {"filmes": lista}
+
+@app.delete("/filmes")
+def apagar_filme(id:int):
+    deletar_filme(id)
+    return {"Mensagem": "Filme deletado com sucesso"}

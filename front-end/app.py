@@ -19,6 +19,7 @@ if menu == "Catálogo":
             # for filme in filmes:
             #     st.write(f"**{filme['titulo']} | {filme['genero']} | {filme['ano']} | {filme['avaliacao']}** ")          Jeito mais feio
             tabela_filmes = {
+                "id": [filme['id'] for filme in filmes],
                 "titulo": [filme['titulo'] for filme in filmes],
                 "genero": [filme['genero'] for filme in filmes],
                 "ano": [filme['ano'] for filme in filmes],
