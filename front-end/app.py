@@ -8,7 +8,7 @@ st.set_page_config(page_title="Gerenciador de Filmes", page_icon="🎥")
 st.title("🎬 Gerenciador de Filmes")
 
 # Menu lateral
-menu = st.sidebar.radio("Navegação", ["Catálogo","Adicionar filme"])
+menu = st.sidebar.radio("Navegação", ["Catálogo","Adicionar Filme","Apagar Filme","Atualizar Filme"])
 
 if menu == "Catálogo":
     st.subheader("Todos os filmes disponíveis")
@@ -31,7 +31,7 @@ if menu == "Catálogo":
     else:
         st.error("Erro ao acessar a API❗")
 
-elif menu == "Adicionar filme":
+elif menu == "Adicionar Filme":
     st.subheader("➕ Adicionar Filme ➕")
     titulo = st.text_input("Título do filme")
     genero = st.text_input("Gênero")
