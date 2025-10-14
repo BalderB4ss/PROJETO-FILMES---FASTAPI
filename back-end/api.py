@@ -19,7 +19,7 @@ app = FastAPI(title="Gerenciador de Filmes")
 
 @app.get("/")
 def home():
-    return {"mensagem": "Quero café prof"}
+    return {"mensagem": "Bem-vindo ao Gerenciador de Filmes"}
 
 @app.post("/filmes")
 def criar_filmes(titulo:str, genero:str, ano:int, avaliacao:float):

@@ -19,8 +19,12 @@ if menu == "Catálogo":
             # for filme in filmes:
             #     st.write(f"**{filme['titulo']} | {filme['genero']} | {filme['ano']} | {filme['avaliacao']}** ")          Jeito mais feio
             tabela_filmes = {
-                "titulo": [filme['titulo'] for filme in filmes[0]],
+                "titulo": [filme['titulo'] for filme in filmes],
+                "genero": [filme['genero'] for filme in filmes],
+                "ano": [filme['ano'] for filme in filmes],
+                "avaliacao": [f"{filme['avaliacao']:,.1f}" for filme in filmes],
             }
+            st.table(tabela_filmes)
         else:
             st.warning("Não há nenhum filme cadastrado!")
     else:
