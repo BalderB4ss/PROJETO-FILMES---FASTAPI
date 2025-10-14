@@ -30,3 +30,17 @@ if menu == "Catálogo":
             st.warning("Não há nenhum filme cadastrado!")
     else:
         st.error("Erro ao acessar a API❗")
+
+elif menu == "Adicionar filme":
+    st.subheader("➕ Adicionar Filme ➕")
+    titulo = st.text_input("Título do filme")
+    genero = st.text_input("Gênero")
+    ano = st.number_input("Ano de Lançamento", min_value=1887, max_value=2030, step=1)
+    avaliacao = st.number_input("Avaliação de (0 à 10)", min_value=0.0, max_value=10.0, step=0.1)
+    if st.button("Adicionar"):
+        dados = {"titulo": titulo, "genero": genero, "ano":ano, "avaliacao":avaliacao}
+        response = requests.post(f"{API_URl}/filmes", params=dados)
+        if response.status_code == 200:
+            st.success("Filme adicionado com sucesso!")
+        else:
+            st.error("Erro ao adicionar o filme❗")
